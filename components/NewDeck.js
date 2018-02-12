@@ -3,6 +3,8 @@ import { View } from 'react-native';
 import { Text, FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { addDeck } from '../actions';
+import { orange } from '../utils/colors';
+import { NavigationActions } from 'react-navigation';
 
 class NewDeck extends Component {
   state={
@@ -22,22 +24,35 @@ class NewDeck extends Component {
       this.setState({title: null});
 
       //TODO: Navigate to NewCard;
-
+      this.props.navigation.dispatch(NavigationActions.navigate({
+        routeName: 'NewCard',
+        params: {deckTitle: title}
+      }));
     }
   }
   render() {
     const { title, error } = this.state;
 
+    const { navigation } = this.props;
+
     return (
-      <View>
-        <View>
-          <Text h2>Name Your Deck</Text>
-          <FormLabel>Name</FormLabel>
-          <FormInput ref={input=>this.input=input} onChangeText={this.onInputChange} defaultValue={title} />
-          {error ? <FormValidationMessage>{'This deck needs a name'}</FormValidationMessage> : <View></View>}
+      <View style={{flex: 1, justifyContent: 'space-between'}}>
+        <View style={{flex: 1, alignItems: 'center', marginTop: 20}}>
+          <Text h2 style={{flex: 1}}>Name Your Deck</Text>
+          <Text>
+            {JSON.stringify(navigation, null, 2)}
+          </Text>
         </View>
-        <View>
-          <Button title='Submit' onPress={this.saveDeck} />
+        <View style={{flex: 3}}>
+          <FormLabel labelStyle={{fontSize: 28}}>Name</FormLabel>
+          <FormInput
+            containerStyle={{paddingBottom: 25}}
+            inputStyle={{fontSize: 24}}
+            ref={input=>this.input=input}
+            onChangeText={this.onInputChange}
+            defaultValue={title} />
+          {error ? <FormValidationMessage>{'This deck needs a name'}</FormValidationMessage> : <View></View>}
+          <Button title='Submit' onPress={this.saveDeck} buttonStyle={{backgroundColor: orange}}/>
         </View>
       </View>
     );
