@@ -10,6 +10,8 @@ import { decks } from './reducers';
 import NewDeck from './components/NewDeck';
 import DeckList from './components/DeckList';
 import DeckDetail from './components/DeckDetail';
+import NewCard from './components/NewCard';
+import Quiz from './components/Quiz';
 
 const TopStatusBar = ({backgroundColor, ...props}) => (
   <View style={{backgroundColor, height: Constants.statusBarHeight}}>
@@ -56,6 +58,12 @@ const MainNav = StackNavigator({
   Home: {
     screen: Tabs,
   },
+  NewCard: {
+    screen: NewCard,
+  },
+  Quiz: {
+    screen: Quiz,
+  },
   DeckDetail: {
     screen: DeckDetail,
     navigationOptions: {
@@ -65,6 +73,8 @@ const MainNav = StackNavigator({
       }
     }
   }
+}, {
+  headerMode: 'none',
 });
 
 export default class App extends React.Component {
