@@ -23,9 +23,8 @@ class NewDeck extends Component {
 
       this.setState({title: null});
 
-      //TODO: Navigate to NewCard;
       this.props.navigation.dispatch(NavigationActions.navigate({
-        routeName: 'NewCard',
+        routeName: 'CardDetail',
         params: {deckTitle: title}
       }));
     }
@@ -39,9 +38,6 @@ class NewDeck extends Component {
       <View style={{flex: 1, justifyContent: 'space-between'}}>
         <View style={{flex: 1, alignItems: 'center', marginTop: 20}}>
           <Text h2 style={{flex: 1}}>Name Your Deck</Text>
-          <Text>
-            {JSON.stringify(navigation, null, 2)}
-          </Text>
         </View>
         <View style={{flex: 3}}>
           <FormLabel labelStyle={{fontSize: 28}}>Name</FormLabel>
@@ -54,6 +50,7 @@ class NewDeck extends Component {
           {error ? <FormValidationMessage>{'This deck needs a name'}</FormValidationMessage> : <View></View>}
           <Button title='Submit' onPress={this.saveDeck} buttonStyle={{backgroundColor: orange}}/>
         </View>
+
       </View>
     );
   }
