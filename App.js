@@ -10,8 +10,9 @@ import { decks } from './reducers';
 import NewDeck from './components/NewDeck';
 import DeckList from './components/DeckList';
 import DeckDetail from './components/DeckDetail';
-import NewCard from './components/NewCard';
+import CardDetail from './components/CardDetail';
 import Quiz from './components/Quiz';
+import CardList from './components/CardList';
 
 const TopStatusBar = ({backgroundColor, ...props}) => (
   <View style={{backgroundColor, height: Constants.statusBarHeight}}>
@@ -58,8 +59,11 @@ const MainNav = StackNavigator({
   Home: {
     screen: Tabs,
   },
-  NewCard: {
-    screen: NewCard,
+  CardDetail: {
+    screen: CardDetail,
+  },
+  CardList: {
+    screen: CardList,
   },
   Quiz: {
     screen: Quiz,
