@@ -3,26 +3,17 @@ import { RECEIVE_DECKS, ADD_CARD, ADD_DECK, DELETE_DECK, DELETE_CARD } from '../
 const testDeck = {
   React: {
   title: 'React',
-  questions: [
-    {
-      question: 'What is React?',
-      answer: 'A library for managing user interfaces'
-    },
-    {
-      question: 'Where do you make Ajax requests in React?',
-      answer: 'The componentDidMount lifecycle event'
-    }
-  ],
+  questions: {
+    'What is React?': 'A library for managing user interfaces',
+    'Where do you make Ajax requests in React?': 'The componentDidMount lifecycle event',
+  },
   toDelete: false,
 },
 JavaScript: {
   title: 'JavaScript',
-  questions: [
-    {
-      question: 'What is a closure?',
-      answer: 'The combination of a function and the lexical environment within which that function was declared.'
-    }
-  ],
+  questions: {
+    'What is a closure?': 'The combination of a function and the lexical environment within which that function was declared.',
+  },
   toDelete: false,
 }
 };
@@ -39,19 +30,24 @@ export const decks = (state={}, action) => {
         ...state,
         [action.title]: {
           ...state[action.title],
-          questions: [...state[action.title].questions, action.card],
+          questions: {
+            ...state[action.title].questions,
+             [action.card.question]: action.card.answer,
+           }
         }
       };
     case DELETE_CARD:
+      const { questions } = state[action.title];
+      const qs = Object.keys(questions).filter(qs=>qs!==action.card.questions);
+      let newQs = {};
+      qs.forEach(q=>{
+        newQs[q] = questions[q];
+      });
       return {
         ...state,
         [action.title]: {
           ...state[action.title],
-          questions: state[action.title].questions
-                      .filter(q=>(
-                        q.question !== action.card.question &&
-                        q.answer !== action.card.answer
-                      )),
+          questions: newQs,
         }
       };
     case ADD_DECK:
