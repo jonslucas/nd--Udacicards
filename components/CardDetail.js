@@ -35,7 +35,7 @@ class CardDetail extends Component {
       submit(deckTitle, {question, answer});
       saveToStorage({
         title: deckTitle,
-        questions:  [{question, answer}],
+        questions:  {[question]: answer},
         toDelete: false,
       });
     }
@@ -86,7 +86,7 @@ const stateToProps = (state, ownProps) => {
     const deck = state.hasOwnProperty(deckTitle) ? state[deckTitle] : {questions: []};
     return {
       ...ownProps,
-      cardCount: deck.questions.length,
+      cardCount: Object.keys(deck.questions).length,
       prevQuestion: question,
       prevAnswer: answer,
     };

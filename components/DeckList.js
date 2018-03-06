@@ -32,7 +32,7 @@ class DeckList extends Component {
 
     const { decks } = this.props;
     const showDecks = decks.map((deck, ind)=>{
-      const cardCount = deck.questions.length;
+      const cardCount = Object.keys(deck.questions).length;
       const cards = `${cardCount} ${cardCount===1?'card':'cards'}`;
       return (
         <ListItem

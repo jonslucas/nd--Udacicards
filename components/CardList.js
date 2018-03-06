@@ -37,9 +37,11 @@ const CardList = (props) => {
 
 const stateToProps = (state, ownProps) => {
   const { deck } = ownProps.navigation.state.params;
+  const { questions } = state[deck];
+  const cards = Object.keys(questions).map(k=>({question: k, answer: questions[k] }))
   return {
     deckTitle: deck,
-    cards: state[deck].questions,
+    cards,
     ...ownProps,
   };
 }
