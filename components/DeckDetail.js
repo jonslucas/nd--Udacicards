@@ -8,7 +8,7 @@ import { removeDeck } from '../utils/api';
 
 const DeckDetail = (props) => {
   const { deck, removeDeckFromState, navigation } = props;
-  const cardCount = deck.questions.length;
+  const cardCount = Object.keys(deck.questions).length;
   return (
     <View>
       <Text h3>{deck.title}</Text>
