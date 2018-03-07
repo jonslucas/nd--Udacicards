@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { addCard, deleteCard } from '../actions';
 import { saveToStorage } from '../utils/api';
 import { NavigationActions } from 'react-navigation';
+import { blue, purple } from '../utils/colors';
 
 class CardDetail extends Component {
   state={
@@ -69,10 +70,18 @@ class CardDetail extends Component {
           />
         </View>
         <View style={{marginBottom: 10, marginTop: 20}}>
-          <Button title="Submit and Add New" onPress={()=>this.onSubmit('newCard')} />
+          <Button
+            title="Submit and Add New"
+            onPress={()=>this.onSubmit('newCard')}
+            buttonStyle={{backgroundColor: blue }}
+          />
         </View>
         <View style={{marginTop: 10}}>
-          <Button title="Complete Deck" onPress={()=>this.onSubmit('deckList')} />
+          <Button
+            title="Complete Deck"
+            onPress={()=>this.onSubmit('deckList')}
+            buttonStyle={{backgroundColor: purple}}
+          />
         </View>
       </View>
     );
