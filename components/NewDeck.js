@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { addDeck } from '../actions';
 import { orange } from '../utils/colors';
 import { NavigationActions } from 'react-navigation';
+import { saveToStorage } from '../utils/api';
 
 class NewDeck extends Component {
   state={
@@ -21,10 +22,16 @@ class NewDeck extends Component {
     else {
       this.props.submit(title);
 
+      saveToStorage({
+        title,
+        questions: {},
+        toDelete: false,
+      });
+
       this.setState({title: null});
 
       this.props.navigation.dispatch(NavigationActions.navigate({
-        routeName: 'CardDetail',
+        routeName: 'DeckDetail',
         params: {deckTitle: title}
       }));
     }
