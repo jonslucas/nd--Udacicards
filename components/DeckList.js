@@ -24,7 +24,7 @@ class DeckList extends Component {
   toDeckDetail = (title) => {
     const navAct = NavigationActions.navigate({
       routeName: 'DeckDetail',
-      params: {key: title},
+      params: {deckTitle: title},
     });
     this.props.navigation.dispatch(navAct);
   }
