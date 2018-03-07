@@ -63,11 +63,13 @@ const DeckDetail = (props) => {
           title='Delete'
           textStyle={{fontSize: 25}}
           onPress={()=>{
-            removeDeck(deck.title);
-            removeDeckFromState(deck.title);
-            navigation.dispatch(NavigationActions.navigate({
-              routeName: 'DeckList',
-            }));
+            removeDeck(deck.title)
+              .then(()=>removeDeckFromState(deck.title))
+              .then(()=>navigation.dispatch(NavigationActions.navigate({
+                routeName: 'DeckList',
+              })))
+              .catch(console.log);
+
           }}
         />
         <Button
