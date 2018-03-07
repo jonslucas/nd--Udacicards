@@ -22,6 +22,7 @@ const DeckDetail = (props) => {
           buttonStyle={{backgroundColor: blue, marginBottom: 50}}
           icon={{name: 'page-multiple', type: 'foundation'}}
           title='Manage Cards'
+          textStyle={{fontSize: 25}}
           onPress={()=>{
             navigation.dispatch(NavigationActions.navigate({
               routeName: 'CardList',
@@ -34,6 +35,7 @@ const DeckDetail = (props) => {
           buttonStyle={{backgroundColor: green, marginBottom: 50}}
           icon={{name: 'page-add', type: 'foundation'}}
           title='Add Cards'
+          textStyle={{fontSize: 25}}
           onPress={()=>{
             navigation.dispatch(NavigationActions.navigate({
               routeName: 'CardDetail',
@@ -46,6 +48,7 @@ const DeckDetail = (props) => {
           buttonStyle={{backgroundColor: orange, marginBottom: 50 }}
           icon={{name: 'trophy', type: 'foundation'}}
           title='Quiz'
+          textStyle={{fontSize: 25}}
           onPress={()=>{
             navigation.dispatch(NavigationActions.navigate({
               routeName: 'Quiz',
@@ -58,6 +61,7 @@ const DeckDetail = (props) => {
           buttonStyle={{backgroundColor: red, marginBottom: 50}}
           icon={{name: 'x', type: 'foundation'}}
           title='Delete'
+          textStyle={{fontSize: 25}}
           onPress={()=>{
             removeDeck(deck.title);
             removeDeckFromState(deck.title);
@@ -69,8 +73,9 @@ const DeckDetail = (props) => {
         <Button
           raised
           buttonStyle={{backgroundColor: lightPurp}}
-          icon={{}}
+          icon={{name:'arrow-left', type: 'foundation'}}
           title="Back to Deck List"
+          textStyle={{fontSize: 25}}
           onPress={()=>(
             navigation.dispatch(NavigationActions.navigate({
               routeName: 'DeckList',
