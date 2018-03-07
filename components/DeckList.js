@@ -53,8 +53,6 @@ class DeckItem extends Component {
 class DeckList extends Component {
   state = {
     ready: false,
-    fade: new Animated.Value(0),
-    bounce: new Animated.Value(1),
    }
   componentDidMount() {
     const { decks, decksToState } = this.props;
@@ -65,6 +63,8 @@ class DeckList extends Component {
         .then(decksToState)
         .then(_=>this.setState({ready:true}))
         .catch(console.log);
+    } else {
+      this.setState({ready: true});
     }
   }
   toDeckDetail = (title) => {
@@ -79,6 +79,7 @@ class DeckList extends Component {
   render() {
 
     const { decks } = this.props;
+    const { ready } = this.state;
 
     const showDecks = decks.map((deck, ind)=>{
       return (
@@ -88,11 +89,25 @@ class DeckList extends Component {
     });
     return (
       <View>
-        <List>
-          { showDecks }
-        </List>
+        { ready ?
+          <View>
+            { decks.length > 0 ?
+              <View>
+                <List>
+                  { showDecks }
+                </List>
 
+              </View> :
+              <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 100}}>
+                <Text h2>No Decks Created Yet.  Why Don't You Add One?</Text>
+              </View>
+            }
+          </View> :
+          null
+
+        }
       </View>
+
     );
   }
 }
