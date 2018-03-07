@@ -12,14 +12,14 @@ const DeckDetail = (props) => {
   const cardCount = Object.keys(deck.questions).length;
   return (
     <View style={{flex:1, flexDirection: 'column', justifyContent:'space-between'}}>
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around', marginTop: 75}}>
         <Text h3>{deck.title}</Text>
         <Text h4>{cardCount} {cardCount === 1 ? 'card' : 'cards'} </Text>
       </View>
-      <View style={{flex: 2, justifyContent: 'space-around'}}>
+      <View style={{flex: 2}}>
         <Button
           raised
-          buttonStyle={{backgroundColor: blue}}
+          buttonStyle={{backgroundColor: blue, marginBottom: 50}}
           icon={{name: 'page-multiple', type: 'foundation'}}
           title='Manage Cards'
           onPress={()=>{
@@ -31,7 +31,7 @@ const DeckDetail = (props) => {
         />
         <Button
           raised
-          buttonStyle={{backgroundColor: green}}
+          buttonStyle={{backgroundColor: green, marginBottom: 50}}
           icon={{name: 'page-add', type: 'foundation'}}
           title='Add Cards'
           onPress={()=>{
@@ -43,7 +43,7 @@ const DeckDetail = (props) => {
         />
         <Button
           raised
-          buttonStyle={{backgroundColor: orange }}
+          buttonStyle={{backgroundColor: orange, marginBottom: 50 }}
           icon={{name: 'trophy', type: 'foundation'}}
           title='Quiz'
           onPress={()=>{
@@ -55,7 +55,7 @@ const DeckDetail = (props) => {
         />
         <Button
           raised
-          buttonStyle={{backgroundColor: red}}
+          buttonStyle={{backgroundColor: red, marginBottom: 50}}
           icon={{name: 'x', type: 'foundation'}}
           title='Delete'
           onPress={()=>{

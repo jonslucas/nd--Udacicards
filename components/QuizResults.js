@@ -12,21 +12,23 @@ const Results = props => {
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Text h3>{correctCount} answered correctly</Text>
         </View>
-        <View style={{flex: 1}} >
-          <Button
-            raised
-            title="Retake Quiz"
-            buttonStyle={{backgroundColor: green}}
-            onPress={restart}
-          />
-        </View>
-        <View style={{flex: 1}} >
-          <Button
-            raised
-            title="Back to Deck"
-            buttonStyle={{backgroundColor: orange}}
-            onPress={navBack}
-          />
+        <View style={{flex: 3}}>
+          <View style={{marginBottom: 30}} >
+            <Button
+              raised
+              title="Retake Quiz"
+              buttonStyle={{backgroundColor: green}}
+              onPress={restart}
+            />
+          </View>
+          <View style={{marginTop: 15}} >
+            <Button
+              raised
+              title="Back to Deck"
+              buttonStyle={{backgroundColor: orange}}
+              onPress={navBack}
+            />
+          </View>
         </View>
       </View>
     );

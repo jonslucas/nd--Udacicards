@@ -55,7 +55,12 @@ class NewDeck extends Component {
             onChangeText={this.onInputChange}
             defaultValue={title} />
           {error ? <FormValidationMessage>{'This deck needs a name'}</FormValidationMessage> : <View></View>}
-          <Button title='Submit' onPress={this.saveDeck} buttonStyle={{backgroundColor: orange}}/>
+          <Button
+            title='Submit'
+            onPress={this.saveDeck}
+            buttonStyle={{backgroundColor: orange}}
+            textStyle={{fontSize: 28}}
+          />
         </View>
 
       </View>

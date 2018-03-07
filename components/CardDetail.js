@@ -54,26 +54,29 @@ class CardDetail extends Component {
         <Text h2 >{deckTitle}</Text>
         <Text h3 >{countStr}</Text>
         <View >
-          <FormLabel>Question</FormLabel>
+          <FormLabel labelStyle={{fontSize: 28}}>Question</FormLabel>
           <FormInput
             ref={input=>this.question=input}
             onChangeText={this.setQuestion}
             defaultValue={prevQuestion}
+            inputStyle={{fontSize: 24}}
           />
         </View>
         <View >
-          <FormLabel>Answer</FormLabel>
+          <FormLabel labelStyle={{fontSize: 28}}>Answer</FormLabel>
           <FormInput
             ref={input=>this.answer=input}
             onChangeText={this.setAnswer}
             defaultValue={prevAnswer}
+            inputStyle={{fontSize: 24}}
           />
         </View>
         <View style={{marginBottom: 10, marginTop: 20}}>
           <Button
             title="Submit and Add New"
             onPress={()=>this.onSubmit('newCard')}
-            buttonStyle={{backgroundColor: blue }}
+            buttonStyle={{backgroundColor: blue}}
+            textStyle={{fontSize: 28}}
           />
         </View>
         <View style={{marginTop: 10}}>
@@ -81,6 +84,7 @@ class CardDetail extends Component {
             title="Complete Deck"
             onPress={()=>this.onSubmit('deckList')}
             buttonStyle={{backgroundColor: purple}}
+            textStyle={{fontSize: 28}}
           />
         </View>
       </View>
