@@ -6,6 +6,7 @@ import { Constants } from 'expo';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { purple, white } from './utils/colors';
+import { setLocalNotification } from './utils/notifications';
 import { decks } from './reducers';
 import NewDeck from './components/NewDeck';
 import DeckList from './components/DeckList';
@@ -82,6 +83,9 @@ const MainNav = StackNavigator({
 });
 
 export default class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification();
+  }
   render() {
     return (
       <Provider store={createStore(decks)} >
