@@ -3,6 +3,11 @@ import { Notifications, Permissions } from 'expo';
 
 const NOTIFICATION_KEY = "udacicards:notifications';"
 
+export function clearLocalNotification() {
+  AsyncStorage.removeItem(NOTIFICATION_KEY)
+    .then(Notifications.cancelAllScheduledNotificationsAsync);
+}
+
 function createNotification() {
   return {
     title: "Wake your brain up!",

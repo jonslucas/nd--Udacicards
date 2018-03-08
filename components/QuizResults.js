@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Text, Button } from 'react-native-elements';
 import { orange, green } from '../utils/colors';
+import { clearLocalNotification } from '../utils/notifications';
 
-const Results = props => {
+class Results extends Component {
 
+  componentDidMount() {
+    clearLocalNotification();
+  }
+
+  render() {
     const { correctCount, navBack, restart } = props;
 
     return (
@@ -32,6 +38,8 @@ const Results = props => {
         </View>
       </View>
     );
+
+  }
 }
 
 export default Results;
