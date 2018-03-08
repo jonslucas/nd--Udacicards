@@ -11,7 +11,7 @@ class Results extends Component {
   }
 
   render() {
-    const { correctCount, navBack, restart } = props;
+    const { correctCount, navBack, restart } = this.props;
 
     return (
       <View style={{flex: 1}}>
