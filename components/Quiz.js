@@ -23,10 +23,7 @@ class Quiz extends Component {
     this.setState(state=>({correctCount: state.correctCount+1, showAnswer: false}));
   }
   backToDeck = () => {
-    this.props.navigation.dispatch(NavigationActions.navigate({
-      routeName: 'DeckDetail',
-      params: {deckTitle: this.props.deck.title},
-    }))
+    this.props.navigation.dispatch(NavigationActions.back());
   }
   restart = () => {
     this.setState({
