@@ -9,6 +9,7 @@ import { red, blue, green, lightPurp, orange } from '../utils/colors';
 
 const DeckDetail = (props) => {
   const { deck, removeDeckFromState, navigation } = props;
+  const spacing = 12;
   const cardCount = Object.keys(deck.questions).length;
   return (
     <View style={{flex:1, flexDirection: 'column', justifyContent:'space-between'}}>
@@ -19,7 +20,7 @@ const DeckDetail = (props) => {
       <View style={{flex: 2}}>
         <Button
           raised
-          buttonStyle={{backgroundColor: blue, marginBottom: 50}}
+          buttonStyle={{backgroundColor: blue, marginBottom: spacing}}
           icon={{name: 'page-multiple', type: 'foundation'}}
           title='Manage Cards'
           textStyle={{fontSize: 25}}
@@ -32,7 +33,7 @@ const DeckDetail = (props) => {
         />
         <Button
           raised
-          buttonStyle={{backgroundColor: green, marginBottom: 50}}
+          buttonStyle={{backgroundColor: green, marginBottom: spacing}}
           icon={{name: 'page-add', type: 'foundation'}}
           title='Add Cards'
           textStyle={{fontSize: 25}}
@@ -45,7 +46,7 @@ const DeckDetail = (props) => {
         />
         <Button
           raised
-          buttonStyle={{backgroundColor: orange, marginBottom: 50 }}
+          buttonStyle={{backgroundColor: orange, marginBottom: spacing }}
           icon={{name: 'trophy', type: 'foundation'}}
           title='Quiz'
           textStyle={{fontSize: 25}}
@@ -58,7 +59,7 @@ const DeckDetail = (props) => {
         />
         <Button
           raised
-          buttonStyle={{backgroundColor: red, marginBottom: 50}}
+          buttonStyle={{backgroundColor: red, marginBottom: spacing}}
           icon={{name: 'x', type: 'foundation'}}
           title='Delete'
           textStyle={{fontSize: 25}}
